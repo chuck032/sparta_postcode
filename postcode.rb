@@ -166,6 +166,76 @@ class Postcodesio
     parliamentary_array
   end
 
+  def get_euro_elect(postcode)
+    euro_array = []
+    get_result(postcode).each  do |x|
+      euro_array << x["result"]["european_electoral_region"]
+    end
+    euro_array
+  end
+
+  def get_prim_care(postcode)
+    primary_array = []
+    get_result(postcode).each  do |x|
+      primary_array << x["result"]["primary_care_trust"]
+    end
+    primary_array
+  end
+
+  def get_reg(postcode)
+    region_array = []
+    get_result(postcode).each  do |x|
+      if x["result"]["region"] != nil
+        region_array << x["result"]["region"]
+      end
+    end
+    region_array
+  end
+
+  def get_par(postcode)
+    parish_array = []
+    get_result(postcode).each  do |x|
+      if x["result"]["parish"] != nil
+        parish_array << x["result"]["parish"]
+      end
+    end
+    parish_array
+  end
+
+  def get_lsoa_mult(postcode)
+    lsoa_array = []
+    get_result(postcode).each  do |x|
+      lsoa_array << x["result"]["lsoa"]
+    end
+    lsoa_array
+  end
+
+  def get_msoa_mult(postcode)
+    msoa_array = []
+    get_result(postcode).each  do |x|
+      if x["result"]["msoa"] != nil
+        msoa_array << x["result"]["msoa"]
+      end
+    end
+    msoa_array
+  end
+
+  def get_admin_dis(postcode)
+    admin_array = []
+    get_result(postcode).each  do |x|
+      admin_array << x["result"]["admin_district"]
+    end
+    admin_array
+  end
+
+  def get_incode_char(postcode)
+    incode_array = []
+    get_result(postcode).each  do |x|
+      incode_array << x["result"]["incode"].length
+    end
+    incode_array
+  end
+
 
 
 
@@ -176,4 +246,4 @@ array = ["HA80PX","CH53PA","EH24ET","BT11AA"]
 # p new_postcodes.get_single_postcode("HA80PX")
 # p new_postcodes.get_incode(new_postcodes.get_single_postcode("HA80PX"))
 # p new_postcodes.get_multiple_postcodes(array)
-p new_postcodes.get_parl_const(new_postcodes.get_multiple_postcodes(array))
+p new_postcodes.get_incode_char(new_postcodes.get_multiple_postcodes(array))

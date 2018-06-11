@@ -157,34 +157,58 @@ describe Postcodesio do
     end
 
     it "should return a parliamentary constituency string" do
+      @postcodesio.get_parl_const(@response).each do |x|
+        expect(x).to be_kind_of String
+      end
     end
 
     it "should return a european_electoral_region string" do
+      @postcodesio.get_euro_elect(@response).each do |x|
+        expect(x).to be_kind_of String
+      end
     end
 
     it "should return a primary_care_trust string" do
+      @postcodesio.get_prim_care(@response).each do |x|
+        expect(x).to be_kind_of String
+      end
     end
 
     it "should return a region string" do
+      @postcodesio.get_reg(@response).each do |x|
+        expect(x).to be_kind_of String
+      end
     end
 
     it "should return a parish string" do
+      @postcodesio.get_par(@response).each do |x|
+        expect(x).to be_kind_of String
+      end
     end
 
     it "should return a lsoa string" do
+      @postcodesio.get_lsoa_mult(@response).each do |x|
+        expect(x).to be_kind_of String
+      end
     end
 
     it "should return a msoa string" do
+      @postcodesio.get_msoa_mult(@response).each do |x|
+        expect(x).to be_kind_of String
+      end
     end
     # admin ward and county are not documented however tested below
 
     it "should return a admin_district string" do
-    end
-
-    it "should return a incode string of three characters" do
+      @postcodesio.get_admin_dis(@response).each do |x|
+        expect(x).to be_kind_of String
+      end
     end
 
     it "should return a incode string of 3-4 characters" do
+      @postcodesio.get_incode_char(@response).each do |x|
+        expect(x).to be_between(3,4)
+      end
     end
 
   end
