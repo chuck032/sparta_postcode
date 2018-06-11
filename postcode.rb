@@ -22,6 +22,21 @@ class Postcodesio
     postcode["result"]
   end
 
+  def get_postcode_length(postcode)
+    get_result(postcode)["postcode"].length
+  end
+
+  def get_quality(postcode)
+    get_result(postcode)["quality"]
+  end
+
+  def get_eastings(postcode)
+    get_result(postcode)["eastings"]
+  end
+
+
+
+
 end
 
 # new_postcodes = Postcodesio.new

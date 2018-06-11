@@ -14,19 +14,19 @@ describe Postcodesio do
     end
 
     it "should have a results hash" do
-      # expect(@response["result"]).to be_kind_of Hash
+      expect(@postcodesio.get_result(@response)).to be_kind_of Hash
     end
 
     it "should return a postcode between 5-7 in length"  do
-      # expect(@response["result"]["postcode"].length).to be_between(5,7)
+      expect(@postcodesio.get_postcode_length(@response)).to be_between(5,7)
     end
 
     it "should return an quality key integer between 1-9" do
-      # expect(@response["result"]["quality"]).to be_between(1,9)
+      expect(@postcodesio.get_quality(@response)).to be_between(1,9)
     end
 
     it "should return an ordnance survey eastings value as integer" do
-      # expect(@response["result"]["eastings"]).to be_kind_of Integer
+      expect(@postcodesio.get_eastings(@response)).to be_kind_of Integer
     end
 
     it "should return a country which is one of the four constituent countries of the UK" do
