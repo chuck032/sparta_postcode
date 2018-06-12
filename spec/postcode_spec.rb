@@ -99,7 +99,6 @@ describe Postcodesio do
     end
 
     it "should return the first query as the first postcode in the response" do
-      # expect(@postcodesio.get_first_query(@response)).to include("HA80PX").or include("CH53PA").or include("EH24ET").or include("BT11AA")
       expect(@postcodesio.get_query_index(@response, 0)).to eq("HA80PX")
     end
 
